@@ -25,6 +25,13 @@ We are investigating how to make this easier, but if anyone wants to help out, p
 Subdomain with a CNAME record directing traffic to a Cloudfront endpoint:
 
 ```hcl
+locals {
+  record_metadata_rescheduler_cds_snc_ca_CNAME = {
+    owner   = "ops-team@ssc-spc.gc.ca"
+    purpose = "Cname for domain for record scheduler"
+  }
+}
+
 resource "aws_route53_record" "rescheduler-cds-snc-ca-CNAME" {
     zone_id = aws_route53_zone.cds-snc-ca-public.zone_id
     name    = "rescheduler.cds-snc.ca"
@@ -40,6 +47,13 @@ resource "aws_route53_record" "rescheduler-cds-snc-ca-CNAME" {
 Subdomain with an A record directing traffic to an IP address:
 
 ```hcl
+locals {
+  record_metadata_ebrief_cds_snc_ca_A = {
+    owner   = "ebrief-owner@cds-snc.ca"
+    purpose = "dns Record for brief app"
+  }
+}
+
 resource "aws_route53_record" "ebrief-cds-snc-ca-A" {
     zone_id = aws_route53_zone.cds-snc-ca-public.zone_id
     name    = "ebrief.cds-snc.ca"
@@ -77,6 +91,13 @@ Un membre de l'équipe de la plate-forme examinera la demande et l'approuvera ou
 Sous-domaine avec un enregistrement `CNAME` dirigeant le trafic vers un point de terminaison CloudFront :
 
 ```hcl
+locals {
+  record_metadata_rescheduler_cds_snc_ca_CNAME = {
+    owner   = "ops-team@ssc-spc.gc.ca"
+    purpose = "Cname for domain for record scheduler"
+  }
+}
+
 resource "aws_route53_record" "rescheduler-cds-snc-ca-CNAME" {
     zone_id = aws_route53_zone.cds-snc-ca-public.zone_id
     name    = "rescheduler.cds-snc.ca"
@@ -92,6 +113,13 @@ resource "aws_route53_record" "rescheduler-cds-snc-ca-CNAME" {
 Sous-domaine avec un enregistrement `A` dirigeant le trafic vers une adresse IP :
 
 ```hcl
+locals {
+  record_metadata_ebrief_cds_snc_ca_A = {
+    owner   = "ebrief-owner@cds-snc.ca"
+    purpose = "dns Record for brief app"
+  }
+}
+
 resource "aws_route53_record" "ebrief-cds-snc-ca-A" {
     zone_id = aws_route53_zone.cds-snc-ca-public.zone_id
     name    = "ebrief.cds-snc.ca"
